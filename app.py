@@ -18,4 +18,10 @@ db.connect()
 
 
 
+def init():
+    print("\nWelcome to your Contact List:\n\n Press 1 to See your Contacts \n Press 2 to Create a new Contact \n Press 3 to Delete a Contact \n Press 4 to Exit\n")
+    decide = input("What would you like to do?")
+
+
+init()
 
