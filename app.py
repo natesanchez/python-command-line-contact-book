@@ -28,7 +28,7 @@ db.create_tables([Contact])
 
 def init():
     print(
-        "\nContact Book:\n\n Enter 1 to See your Contacts \n Enter 2 to Create a new Contact \n Enter 3 to Delete a Contact \n Enter 4 to Exit\n"
+        "\nContact Book:\n\n Enter 1 to See all of your Contacts \n Enter 2 to Create a new Contact \n Enter 3 to Delete a Contact \n Enter 4 to find a specific Contact\n Enter 5 to Exit\n"
     )
     option = input("What would you like to do?: ")
     if option == "1":
@@ -38,6 +38,8 @@ def init():
     elif option == "3":
         delete()
     elif option == "4":
+        find()
+    elif option == "5":
         exit()
     else:
         print("Please Select a Valid Option")
@@ -59,6 +61,22 @@ def display():
         exit()
 
 
+def find():
+    search = input(
+        "Who are are you looking for? Search by First Name [Case Sensitive]: "
+    )
+    try:
+        result = Contact.get(Contact.firstname == search)
+        print("Searching...")
+        print(
+            f" \n Full Name: {result.firstname} {result.lastname}\n phone: {result.phone}\n email: {result.email}\n"
+        )
+        init()
+    except Contact.DoesNotExist:
+        print("Couldn't find anyone in your contact book with that name..")
+        init()
+
+
 def create():
     create_firstname = input("Contact's first name: ")
     create_lastname = input("Contact's last name: ")
@@ -77,6 +95,9 @@ def create():
     print("Contact Successfully Created!")
     print()
     init()
+
+
+# def delete():
 
 
 init()
