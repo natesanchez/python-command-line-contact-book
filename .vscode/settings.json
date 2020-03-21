@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/natesanchez/.local/share/virtualenvs/python-command-line-contact-book-qvM7xRpP/bin/python"
+    "python.pythonPath": "/Users/natesanchez/.local/share/virtualenvs/python-command-line-contact-book-qvM7xRpP/bin/python",
+    "python.formatting.provider": "black"
 }
