@@ -22,9 +22,6 @@ db.connect()
 
 db.create_tables([Contact])
 
-# nate = Contact(firstname="Nate", lastname="Sanchez", phone="7733197218", email="nsanchez@usa.com")
-# nate.save()
-
 
 def init():
     print(
@@ -97,7 +94,25 @@ def create():
     init()
 
 
-# def delete():
+def delete():
+    contacts = Contact.select()
+    print("Displaying all your Contacts...")
+    for contact in contacts:
+        print(f"{contact.firstname}")
+    selection = input("Which contact do you want to Delete? [Case Sensitive]: ")
+    if selection == contact.firstname:
+        positive = input("Are you sure you would like to delete this Contact? y/n: ")
+        if positive == "y":
+            contact = Contact.get(Contact.firstname == selection)
+            contact.delete_instance()
+            print("Deleting Contact...")
+            print("Contact Deleted!")
+            init()
+        else:
+            init()
+    else:
+        print("No contact matches the name you just entered")
+        init()
 
 
 init()
