@@ -2,6 +2,8 @@
 
 Command Line Python app you can use to keep track of all your contacts!
 
+![app image](app.png)
+
 # Features
 
 * List all of your Contacts
@@ -9,7 +11,9 @@ Command Line Python app you can use to keep track of all your contacts!
 * Create new Contacts
 * Delete Contacts
 
-# Author
+# How to Install/Use
+
+# Authors
 
 Nate Sanchez
 
