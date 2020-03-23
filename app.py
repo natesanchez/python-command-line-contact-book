@@ -104,7 +104,7 @@ def delete():
     for contact in contacts:
         print(f"{contact.firstname}")
     selection = input("Which contact do you want to Delete? [Case Sensitive]: ")
-    if selection == contact.firstname:
+    if selection == Contact.firstname:
         positive = input("Are you sure you would like to delete this Contact? y/n: ")
         if positive == "y":
             contact = Contact.get(Contact.firstname == selection)
