@@ -25,17 +25,17 @@ db.create_tables([Contact])
 
 def init():
     print(
-        "\nContact Book:\n\n Enter 1 to See all of your Contacts \n Enter 2 to Create a new Contact \n Enter 3 to Delete a Contact \n Enter 4 to find a specific Contact\n Enter 5 to Exit\n"
+        "\nContact Book:\n\n Enter 1 to See all of your Contacts \n Enter 2 to find a specific Contact \n Enter 3 to Create a New Contact \n Enter 4 to Delete a Contact\n Enter 5 to Exit\n"
     )
     option = input("What would you like to do?: ")
     if option == "1":
         display()
     elif option == "2":
-        create()
-    elif option == "3":
-        delete()
-    elif option == "4":
         find()
+    elif option == "3":
+        create()
+    elif option == "4":
+        delete()
     elif option == "5":
         exit()
     else:
@@ -70,8 +70,12 @@ def find():
         )
         init()
     except Contact.DoesNotExist:
-        print("Couldn't find anyone in your contact book with that name..")
-        init()
+        print("\nCouldn't find anyone in your contact book with that name...\n")
+        back = input("would you like to go back to the selection page? y/n: ")
+        if back == "y":
+            init()
+        else:
+            exit()
 
 
 def create():
